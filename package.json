@@ -4,11 +4,12 @@
   "description": "JSON Schema Compiled checK",
   "scripts": {
     "test": "coffee test",
-    "prepublish": "coffee tasks/build"
+    "prepublish": "coffee -o lib/ -c src/*.coffee"
   },
   "main": "lib/index.js",
   "files": [
     "lib/",
+    "src/",
     "README.md"
   ],
   "dependencies": {},

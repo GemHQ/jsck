@@ -1,5 +1,12 @@
 URI = require "./uri"
 
+type = require "./common/type"
+numeric = require "./common/numeric"
+comparison = require "./common/comparison"
+arrays = require "./common/arrays"
+objects = require "./common/objects"
+strings = require "./common/strings"
+
 {escape, Runtime, Context} = require "./util"
 
 # Schemas should always be JSON stringifiable, so this is a simple
@@ -29,12 +36,12 @@ module.exports = ({uri, mixins}) ->
     SCHEMA_URI = uri
 
     common_modules =
-      "type": require "./common/type"
-      "numeric": require "./common/numeric"
-      "comparison": require "./common/comparison"
-      "arrays": require "./common/arrays"
-      "objects": require "./common/objects"
-      "strings": require "./common/strings"
+      "type": type
+      "numeric": numeric
+      "comparison": comparison
+      "arrays": arrays
+      "objects": objects
+      "strings": strings
 
     common = for name of common_modules
       mixin = common_modules[name]
