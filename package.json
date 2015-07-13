@@ -4,7 +4,7 @@
   "description": "JSON Schema Compiled checK",
   "scripts": {
     "test": "coffee test",
-    "prepublish": "coffee -o lib/ -c src/*.coffee"
+    "prepublish": "coffee -o lib -c src"
   },
   "main": "lib/index.js",
   "files": [
