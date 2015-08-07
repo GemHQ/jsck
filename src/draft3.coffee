@@ -3,6 +3,13 @@ deap = require "deap"
 
 attributes = require "./draft3/attributes"
 
+type = require "./draft3/type"
+numeric = require "./draft3/numeric"
+comparison = require "./draft3/comparison"
+arrays = require "./draft3/arrays"
+objects = require "./draft3/objects"
+strings = require "./draft3/strings"
+
 escape = (string) ->
   string
     .replace(/~0/g, "~")
@@ -44,17 +51,16 @@ module.exports = class Validator
 
   # Mix in methods from the modules where they live.
   modules = [
-    "type"
-    "numeric"
-    "comparison"
-    "arrays"
-    "objects"
-    "strings"
+    type
+    numeric
+    comparison
+    arrays
+    objects
+    strings
   ]
 
-  for module_name in modules
-    m = require "./draft3/#{module_name}"
-    for name, method of m
+  for module in modules
+    for name, method of module
       Validator.prototype[name] = method
 
 
